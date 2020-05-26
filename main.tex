@@ -1,0 +1,64 @@
+\documentclass[a4paper,12pt,twoside,openany]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[OT4]{fontenc}
+\usepackage{polski}
+\usepackage{multirow}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\newcommand{\specialcell}[2][c]{%
+  \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+
+\linespread{1.5} 
+
+
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+        \large
+        \textbf{Politechnika Poznańska}\\
+        Wydział Informatyki i Telekomunikacji\\
+        Instytut Informatyki\\
+        \vspace{1.5cm}
+            
+        \textbf{Dominik Krystkowiak}\\
+        Praca dyplomowa magisterska\\
+        
+        \vspace{1cm}
+        \Huge
+        \textbf{
+        Analiza i zastosowanie zaawansowanych mechanizmów rekomendacji}
+            
+        \vfill
+        \begin{flushright}\large
+        Promotor dr inż. Anna Grocholewska-Czuryło\end{flushright}
+        \vspace{0.8cm}
+            
+        \large
+        2020
+            
+    \end{center}
+\end{titlepage}
+
+\thispagestyle{empty}\vspace*{\fill}%
+\begin{center}KARTA DYPLOMOWA\end{center}%
+\vfill\cleardoublepage%
+
+\thispagestyle{plain}
+\begin{center}
+    \textbf{Abstract}
+\end{center}
+Lorem ipsum dolor...
+
+\tableofcontents* \cleardoublepage%
+
+\input{01-wstep.tex}
+\input{02-systemy-rekomendacyjne}
+\input{03-bezpieczenstwo}
+\input{04-projekt}
+\input{05-podsumowanie}
+
+\bibliographystyle{plalpha}{\raggedright\sloppy\small\bibliography{bibliography}}
+
+\end{document}
