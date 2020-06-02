@@ -17,7 +17,7 @@ Systemy rekomendacyjne mogą zostać podzielone na dwie grupy ze względu na pod
 
 Dane zazwyczaj przedstawiane są w formie dwuwymiarowej macierzy $R = U \times I$, gdzie U jest to zbiór n użytkowników oraz I zbiór m przedmiotów. Tabela \ref{macierzUI} przedstawia przykład takiej macierzy, wiersze reprezentują użytkowników, kolumny przedmioty, oceny są w przedziale 1 do 5, natomiast 0 oznacza brak oceny. Aby uzyskać lepsze rekomendacje systemy mogą wykorzystać macierze o większej liczbie wymiarów (zawierających czas, lokalizację czy informacje uzyskane z mediów społecznościowych).
 
-Dzięki coraz lepszym technikom zdobywania danych oraz spadającej tendencji do udzielania ocen wśród klientów, popularnym stało się wykorzystanie domniemanych danych (\textit{ang. implict data}) takich jak: liczba kliknięć lub wyświetleń do budowania akademickich oraz branżowych systemów rekomendacyjnych. Dane takie w przeciwieństwie do informacji sprecyzowanych (\textit{ang. explict data}) nie opierają się o negatywne sprzężenie zwrotne oraz nie wymagają metryki pewności (nawiązują do częstotliwości występowania zjawiska).
+Dzięki coraz lepszym technikom zdobywania danych oraz spadającej tendencji do udzielania ocen wśród klientów, popularnym stało się wykorzystanie domniemanych danych (\textit{ang. implict data}) takich jak: liczba kliknięć lub wyświetleń do budowania akademickich oraz branżowych systemów rekomendacyjnych \cite{Adomavicius2005}. Dane takie w przeciwieństwie do informacji sprecyzowanych (\textit{ang. explict data}) nie opierają się o negatywne sprzężenie zwrotne oraz nie wymagają metryki pewności (nawiązują do częstotliwości występowania zjawiska).
 
 \label{macierzUI}
 \begin{table}[h]
@@ -103,6 +103,7 @@ Zimny start (ang \textit{cold-start)} - występuje w momencie rejestracji do sys
     \centering
     \includegraphics{images/content-based.png}
     \caption{Sposób działania mechanizmu \textit{Content-based filtering}.}
+    Źródło: opracowanie własne na podstawie \cite{challenges_solutions_survey}
     \label{fig:content-based}
 \end{figure}
 
@@ -142,6 +143,7 @@ Uzyskane w ten sposób wartości są z przedziału [-1; 1], im wyższa liczba ty
     \centering
     \includegraphics[scale=0.7]{images/collaborative.png}
     \caption{Sposób działania mechanizmu \textit{Collaborative filtering}.}
+    Źródło: opracowanie własne na podstawie \cite{challenges_solutions_survey}
     \label{fig:collaborative}
 \end{figure}
 
@@ -176,9 +178,9 @@ Tak utworzone pseudowektory dla wszystkich użytkowników tworzą macierz V na k
 
 \section{Sposoby ewaluacji}\label{metryki}
 
-Ważnym aspektem podczas tworzenia systemów rekomendacyjnych jest ocena działania zaimplementowanego algorytmu. Ze względu na środowisko można je podzielić na testy offline oraz online lub na statystyczne (np. MAE) i wspierające decyzje (np. AUC) [Herlocker et al.1999] Ewaluacja offline jest najprostszym podejściem, ponieważ nie wymaga interakcji z rzeczywistym odbiorcą systemu. Natomiast drugie podejście daje lepsze rezultaty jednak wymaga to dużych nakładów finansowych oraz w niektórych przypadkach ciężko zrozumieć powiązania pomiędzy użytkownikami a właściwościami systemu. Również wyróżnia się testy na małej liczbie użytkowników w kontrolowanym środowisku oraz raportowanie ich doświadczeń podczas pracy z systemem.
+Ważnym aspektem podczas tworzenia systemów rekomendacyjnych jest ocena działania zaimplementowanego algorytmu. Ze względu na środowisko można je podzielić na testy offline oraz online lub na statystyczne (np. MAE) i wspierające decyzje (np. AUC) \cite{herlocker}. Ewaluacja offline jest najprostszym podejściem, ponieważ nie wymaga interakcji z rzeczywistym odbiorcą systemu. Natomiast drugie podejście daje lepsze rezultaty jednak wymaga to dużych nakładów finansowych oraz w niektórych przypadkach ciężko zrozumieć powiązania pomiędzy użytkownikami a właściwościami systemu. Podstawowymi miarami dla systemu działającego na produkcji to na przykład współczynnik klikalności (ang. \textit{click through rate} - CTR) oraz sumaryczna wartość transakcji (ang. \textit{gross merchandise volume} - GMV). Ponadto stosuje się testy na małej liczbie użytkowników w kontrolowanym środowisku oraz raportowanie ich doświadczeń podczas pracy z systemem.
 
-Jakość predykcji w systemach rekomendacyjnych mierzona jest poprzez następujące miary:
+Zbiór danych dzielony jest na treningowy, walidacyjny oraz testowy. Zbiór treningowy wykorzystywany jest podczas uczenia modelu, natomiast zbiór walidacyjny do sprawdzenia skuteczności wyuczonego modelu. Po uzyskaniu zadowalających wyników wykorzystuje się zestaw testowy do wyliczenia skuteczności modelu. Jakość predykcji w systemach rekomendacyjnych mierzona jest poprzez następujące miary:
 
 Średni błąd kwadratowy (\textit{ang. Mean Absolute Error}) - mierzy bezwzględny błąd pomiędzy wyestymowaną wartością, a prawdziwą.
 
@@ -230,16 +232,6 @@ F1 - średnia harmoniczna dla wartości precyzji i czułośći.
 \end{equation}
 
 Pole pod krzywą ROC (\textit{ang. Receiver operating Characteristic}) - krzywa ROC pokazuje wydajność klasyfikatora binarnego na dwuwymiarowej płaszczyźnie. Pole pod krzywą ROC jest wykorzystywane do mierzenia zdolności systemu do odróżniania dobrych predykcji od złych. Większa wartość tej metryki oznacza lepszą wydajność systemu. Macierz błędów została przedstawiona w tabeli \ref{macierzBledow}.
-
-[DO ZROBIENIA offiline
-train/cross-validation/test
-różne wagi (klasyfikacyjne vs rankingowe)
-
-online
-algorytm dziala na produkcji
-CTR GMV - podstawowe marketingowe miary
-miary offline warto obliczyc dla danych splywajacych z produkcji
-testy a/b]
 
 \section{Skuteczność metod}
 

@@ -6,6 +6,8 @@
 \usepackage{multirow}
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
+\usepackage[nottoc]{tocbibind}
+\usepackage{url}
 
 \newcommand{\specialcell}[2][c]{%
   \begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
@@ -53,12 +55,17 @@ Lorem ipsum dolor...
 
 \tableofcontents* \cleardoublepage%
 
-\input{01-wstep.tex}
+\input{01-wstep}
 \input{02-systemy-rekomendacyjne}
 \input{03-bezpieczenstwo}
 \input{04-projekt}
 \input{05-podsumowanie}
 
-\bibliographystyle{plalpha}{\raggedright\sloppy\small\bibliography{bibliography}}
+\medskip
+
+%Sets the bibliography style to UNSRT and imports the 
+%bibliography file "samples.bib".
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
 
 \end{document}
