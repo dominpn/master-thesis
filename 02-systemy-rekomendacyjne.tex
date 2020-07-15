@@ -3,9 +3,9 @@
 
 Systemy rekomendacyjne pomagają użytkownikom w zdobyciu wartościowych i spersonalizowanych informacji z dużego źródła danych. Większość przypadków działania takiego systemu opiera się na przewidzeniu preferencji użytkownika na podstawie wcześniej zgromadzonych danych.
 
-Ważnym momentem w historii systemów rekomendacyjnych był otwarty konkurs \textit{Netflix Prize} polegający na zaproponowaniu najlepszego algorytmu \textit{collaborative filtering} mającego na celu przewidzenie oceny filmu danej przez użytkownika, opierając się wyłącznie na poprzednich ocenach, bez dodatkowych informacjach o użytkownikach i filmach. W tym celu opublikowano zbiór testowy zawierający ponad 100 milionów ocen wystawionych przez 500 tysięcy anonimowych użytkowników. W wyzwaniu wzięło udział ponad 48 tysięcy zespołów z 182 państw [2].
+Ważnym momentem w historii systemów rekomendacyjnych był otwarty konkurs \textit{Netflix Prize} polegający na zaproponowaniu najlepszego algorytmu \textit{collaborative filtering} mającego na celu przewidzenie oceny filmu danej przez użytkownika, opierając się wyłącznie na poprzednich ocenach, bez dodatkowych informacjach o użytkownikach i filmach. W tym celu opublikowano zbiór testowy zawierający ponad 100 milionów ocen wystawionych przez 500 tysięcy anonimowych użytkowników. W wyzwaniu wzięło udział ponad 48 tysięcy zespołów z 182 państw \cite{netflix_prize}.
 
-Po konkursie \textit{Netflix Prize} głównym motywem przewodnim w pracach naukowych stała się faktoryzacja macierzy. Również w celu zwiększenia skuteczności algorytmu uwagę poświęcono takim zagadnieniom jak: wykorzystanie sieci społecznościowych oraz uczenia głębokiego w systemach rekomendacyjnych [1].
+Po konkursie \textit{Netflix Prize} głównym motywem przewodnim w pracach naukowych stała się faktoryzacja macierzy. Również w celu zwiększenia skuteczności algorytmu uwagę poświęcono takim zagadnieniom jak: wykorzystanie sieci społecznościowych oraz uczenia głębokiego w systemach rekomendacyjnych \cite{recent_developments}.
 
 Rozdział omawia sposób działania systemów rekomendacyjnych, główne problemy i wyzwania stawiane tym systemom. Także przedstawiono popularne mechanizmy, sposoby ewaluacji oraz główne zalety poszczególnych rozwiązań.
 
@@ -13,7 +13,7 @@ Rozdział omawia sposób działania systemów rekomendacyjnych, główne problem
 
 Głównymi zadaniami systemów rekomendacyjnych jest odfiltrowanie przedmiotów (na przykład: filmy, książki), które są dla użytkownika potencjalnie mało interesujące lub nieatrakcyjne. Użytkownik korzystający z serwisu wspieranego przez tego typu systemy otrzymuje jako proponowane, mały, spersonalizowany zestaw produktów z całego zbioru.
 
-Systemy rekomendacyjne mogą zostać podzielone na dwie grupy ze względu na podejście [1]: spersonalizowane oraz niespersonalizowane. Pierwsze opierają swoje działanie na zebranych danych użytkownika. Informacje o odwiedzających mogą zostać zdobyte poprzez monitorowanie zachowań użytkowników lub poprzez bezpośrednie zapytanie użytkowników o ich preferencje. Natomiast podejście niespersonalizowane bazuje na zachowaniach pozostałych użytkowników.
+Systemy rekomendacyjne mogą zostać podzielone na dwie grupy ze względu na podejście \cite{recent_developments}: spersonalizowane oraz niespersonalizowane. Pierwsze opierają swoje działanie na zebranych danych użytkownika. Informacje o odwiedzających mogą zostać zdobyte poprzez monitorowanie zachowań użytkowników lub poprzez bezpośrednie zapytanie użytkowników o ich preferencje. Natomiast podejście niespersonalizowane bazuje na zachowaniach pozostałych użytkowników.
 
 Dane zazwyczaj przedstawiane są w formie dwuwymiarowej macierzy $R = U \times I$, gdzie U jest to zbiór n użytkowników oraz I zbiór m przedmiotów. Tabela \ref{macierzUI} przedstawia przykład takiej macierzy, wiersze reprezentują użytkowników, kolumny przedmioty, oceny są w przedziale 1 do 5, natomiast 0 oznacza brak oceny. Aby uzyskać lepsze rekomendacje systemy mogą wykorzystać macierze o większej liczbie wymiarów (zawierających czas, lokalizację czy informacje uzyskane z mediów społecznościowych).
 
@@ -85,6 +85,7 @@ Ze względu na rodzaj wyjścia (otrzymanego wyniku) systemy rekomendacyjne może
 
 
 \section{Problemy i wyzwania}
+Nowoczesne systemy oparte o rekomendacje muszą radzić sobie z wieloma trudnościami. Problemy dotyczą zarówno małej liczby danych jak i zachowaniem grupy lub pojedynczych użytkowników. Poniżej przedstawiono najczęstsze wyzwania stawiane przed systemami rekomendacyjnymi.
 
 Rzadkość danych - następuje w momencie, gdy wielu użytkowników oceniło tylko kilka przedmiotów przez co system rekomendacyjny nie może poznać preferencji użytkownika (macierz użytkownik-przedmiot ma zbyt wiele pustych wartości).
 
@@ -235,13 +236,13 @@ Pole pod krzywą ROC (\textit{ang. Receiver operating Characteristic}) - krzywa 
 
 \section{Skuteczność metod}
 
-WSTEP
+Każda z omówionych we wcześniejszych rozdziałach metod posiada zalety i wady przez co nie zawsze sprawdzają się w danych zastosowaniach. Użycie danej metody musi zostać oparte na rodzaju danych, wielkości systemu oraz domeny w jakiej ma być wykorzystywana. Tabela \ref{tabelaMetProblem} przedstawia poszczególne mechanizmy rekomendacji wraz z odpornością na dany problem, gdzie "-" oznacza podatność, a "+" niewrażliwość.
 
 Systemy rekomendacyjne wykorzystujące podejście \textit{collaborative-filtering} uzyskują zadowalające wyniku związane z wydajnością, jednak nie są odporne na problem zimnego startu. Także problemem może okazać się rzadkość danych, jeżeli wartość wynosi około 0.5 lub więcej wtedy należy rozważyć użycie innego rozwiązania.
 
 \begin{table}[h]
 \centering
-\caption{Przykład macierzy użytkownik-przedmiot.}
+\caption{Odporność mechanizmów rekomendacyjnych na potencjalne problemy.}
 \begin{tabular}{|c|c|c|c|c|c|}
 \hline
 &
