@@ -91,7 +91,14 @@ Rzadkość danych - następuje w momencie, gdy wielu użytkowników oceniło tyl
 
 Skalowalność - systemy rekomendacyjne wraz ze wzrostem liczby użytkowników muszą radzić sobie z napływem coraz większej liczby danych do przetworzenia. Gdy takie dane wynoszą miliony użycie standardowych mechanizmów rekomendacyjnych może powodować otrzymanie wyników rekomendacji z dużym opóźnieniem (niewystarczający krótki czas na uzyskanie odpowiedzi). Bardziej złożony system wymaga większej liczby osób usprawniających oraz zarządzających jego działaniem, co równa się większemu kosztowi utrzymania zarówno pracowników jak i sprzętu komputerowego na którym taki system jest wdrożony.
     
-Czarna owca - zjawisko występuje w momencie, gdy preferencje jednego z użytkowników nie pokrywają się z wyodrębnionymi grupami użytkowników, stąd użytkowników nie będzie w stanie otrzymać spersonalizowanych rekomendacji.
+Czarna owca - zjawisko występuje w momencie, gdy preferencje jednego z użytkowników nie pokrywają się z wyodrębnionymi grupami użytkowników, stąd użytkowników nie będzie w stanie otrzymać spersonalizowanych rekomendacji (przykład przedstawiony na rys. \ref{fig:grey-sheep} pokazuje jednego użytkownika o innych preferencjach niż wygenerowane grupy przez system rekomendacyjny).
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{images/grey_sheep.png}
+    \caption{Czarna owca - przykład}
+    \label{fig:grey-sheep}
+\end{figure}
 
 Długi ogon - następuje w momencie, gdy rekomendacja opiera się na produktach podobnych do siebie. Wtedy użytkownicy oglądają tylko część oferowanych przez serwis przedmiotów. Zjawisko to objawia się tym, że produkty, które potencjalnie mogą się podobać konsumentowi nie zostaną mu zaprezentowane.
 
@@ -238,7 +245,9 @@ Pole pod krzywą ROC (\textit{ang. Receiver operating Characteristic}) - krzywa 
 
 Każda z omówionych we wcześniejszych rozdziałach metod posiada zalety i wady przez co nie zawsze sprawdzają się w danych zastosowaniach. Użycie danej metody musi zostać oparte na rodzaju danych, wielkości systemu oraz domeny w jakiej ma być wykorzystywana. Tabela \ref{tabelaMetProblem} przedstawia poszczególne mechanizmy rekomendacji wraz z odpornością na dany problem, gdzie "-" oznacza podatność, a "+" niewrażliwość.
 
-Systemy rekomendacyjne wykorzystujące podejście \textit{collaborative-filtering} uzyskują zadowalające wyniku związane z wydajnością, jednak nie są odporne na problem zimnego startu. Także problemem może okazać się rzadkość danych, jeżeli wartość wynosi około 0.5 lub więcej wtedy należy rozważyć użycie innego rozwiązania.
+Mechanizm \textit{content-based} posiada dwie główne zalety. Pierwsza z nich to fakt, że nie jest wymagana żadna wiedza na temat innych użytkowników w momencie, gdy rekomendacje są generowane wyłącznie do jednego, określonego użytkownika. Przez co umożliwia na łatwiejsze skalowanie aplikacji w przypadku wystąpienia znacznego wzrostu liczby użytkowników. Także zastosowanie tego podejścia umożliwia na wychwycenie specyficznych zainteresowań użytkownika przez co rekomendacja obejmuje niszowe obiekty, które podobają się jedynie garstce użytkowników. Jednak wykorzystanie tej techniki wymaga sporej wiedzy dziedzinowej (model może być wyłącznie tak dobry jak wybrane cechy brane pod uwagę przy nauce modelu). Podawane rekomendacje ograniczają się wyłącznie do aktualnych zainteresowań użytkownika (nie są proponowane przedmioty wychodzące poza gust użytkownika).
+
+Systemy rekomendacyjne wykorzystujące podejście \textit{collaborative-filtering} uzyskują zadowalające wyniku związane z wydajnością, jednak nie są odporne na problem zimnego startu. Także problemem może okazać się rzadkość danych, jeżeli wartość wynosi około 0.5 lub więcej wtedy należy rozważyć użycie innego rozwiązania. Wraz ze wzrostem liczby użytkowników rośnie krytyczne problem związany ze skalowalnością takiego systemu (rozmiar macierzy zwiększa się znacząco z napływem nowych użytkowników lub przedmiotów). Oprócz wspomnianych wad zastosowanie tego nie jest wymagana wiedza domenowa, ponieważ w celu wytrenowania potrzebna jest wyłącznie macierz sprzężenia zwrotnego. Także wykorzystanie tego modelu umożliwia na pokazanie użytkownikom nowego przedmiotu/obiektu, który podobał się innym podobnym użytkownikom.
 
 \begin{table}[h]
 \centering
@@ -255,19 +264,19 @@ Skalowalność &
 \hline
   
 Content-based &
- &
- &
- &
- &
-
++ &
++ &
++ &
+- &
+-
 \\
 \hline
   
 Collaborative &
 - &
- &
- &
- &
+- &
+- &
+- &
 -
 \\
 \hline
@@ -282,13 +291,16 @@ Knowledge-based &
 \hline
 
 \specialcell{Podejście\\hybyrdowe} &
- &
- &
- &
- &
-
++/- &
++/- &
++/- &
++/- &
++/-
 \\
 \hline
 \end{tabular} 
 \label{tabelaMetProblem}
 \end{table}
+
+Podsumowując 
+Wydajność, a także zalety i wady związane z podejściem hybrydowym zależy od kombinacji mechanizmów, które 
