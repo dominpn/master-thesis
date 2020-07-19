@@ -1,7 +1,9 @@
 
-\chapter{Projekt}
+\chapter{Implementacja systemu rekomendacyjnego}
 
-\section{Fazy przepływu}
+WPROWADZENIE
+
+\section{Fazy budowania systemu rekomendacyjnego}
 
 Podczas implementacji systemu rekomendacyjnego wykorzystano typowy przepływ (przedstawiony na rysunku \ref{fig:rs_pipeline}) używany do tworzenia tego typu serwisów, który składa się z następujące pięć faz \cite{rs_in_real}:
 \begin{itemize}
@@ -10,7 +12,6 @@ Podczas implementacji systemu rekomendacyjnego wykorzystano typowy przepływ (pr
     \item optymalizacja hiper parametrów - wielokrotne trenowanie w celu dostrojenia parametrów w taki sposób, aby uzyskać jak najlepsze wyniki,
     \item przetwarzanie końcowe - sortowanie danych w celu uzyskania N najlepszych rekomendacji dla użytkownika, filtrowanie oraz wykluczenie wcześniej zakupionych lub negatywnie ocenionych przedmiotów,
     \item ewaluacja - testowanie stworzonego modelu poprzez ukrywanie/maskowanie ocen, a następnie użycie miar do ewaluacji (szczegółowo opisane w podrozdziale \ref{metryki}).
-    
 \end{itemize}{}
 
 \begin{figure}
@@ -18,3 +19,5 @@ Podczas implementacji systemu rekomendacyjnego wykorzystano typowy przepływ (pr
     \caption{Fazy przepływu podczas tworzenia systemu rekomendacyjnego.}
     \label{fig:rs_pipeline}
 \end{figure}
+
+\section{Dane testowe}

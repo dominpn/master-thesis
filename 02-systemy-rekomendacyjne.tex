@@ -249,6 +249,10 @@ Mechanizm \textit{content-based} posiada dwie główne zalety. Pierwsza z nich t
 
 Systemy rekomendacyjne wykorzystujące podejście \textit{collaborative-filtering} uzyskują zadowalające wyniku związane z wydajnością, jednak nie są odporne na problem zimnego startu. Także problemem może okazać się rzadkość danych, jeżeli wartość wynosi około 0.5 lub więcej wtedy należy rozważyć użycie innego rozwiązania. Wraz ze wzrostem liczby użytkowników rośnie krytyczne problem związany ze skalowalnością takiego systemu (rozmiar macierzy zwiększa się znacząco z napływem nowych użytkowników lub przedmiotów). Oprócz wspomnianych wad zastosowanie tego nie jest wymagana wiedza domenowa, ponieważ w celu wytrenowania potrzebna jest wyłącznie macierz sprzężenia zwrotnego. Także wykorzystanie tego modelu umożliwia na pokazanie użytkownikom nowego przedmiotu/obiektu, który podobał się innym podobnym użytkownikom.
 
+Systemy wykorzystujące mechanizm \textit{knowlegde-based} cechują się łatwością w implementacji tak zwanych reguł biznesowych, co w pozostałych rozwiązaniach nie jest tak proste. Metoda nie wymaga wkładu użytkownika do rozpoczęcia działania przez co nie występuje problem związany z zimnym startem. Jednak zbudowanie systemu opartego na tym mechanizmie jest bardzo drogie, ponieważ wymaga trafnej wiedzy eksperckiej. W aktualnych rozwiązaniach stosowany jest niesamodzielnie, lecz w połączeniu z innymi mechanizmami.  \cite{reviewCurrentRS}
+
+Wydajność, a także zalety i wady związane z podejściem hybrydowym zależy od kombinacji mechanizmów, które zostały użyte do jego stworzenia. Połączenie niektórych metod może spowodować zniwelowaniu problemów występujących podczas rekomendowania produktów dla użytkowników.
+
 \begin{table}[h]
 \centering
 \caption{Odporność mechanizmów rekomendacyjnych na potencjalne problemy.}
@@ -282,11 +286,11 @@ Collaborative &
 \hline
 
 Knowledge-based &
- &
- &
- &
- &
-
++ &
++ &
++ &
++ &
++
 \\
 \hline
 
@@ -301,6 +305,3 @@ Knowledge-based &
 \end{tabular} 
 \label{tabelaMetProblem}
 \end{table}
-
-Podsumowując 
-Wydajność, a także zalety i wady związane z podejściem hybrydowym zależy od kombinacji mechanizmów, które 

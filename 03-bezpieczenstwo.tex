@@ -13,12 +13,13 @@ Prywatność w kontekście systemów rekomendacyjnych oznacza, że podczas pracy
 \begin{figure}
     \centering
     \includegraphics[scale=0.85]{images/podatnosci.png}
-    \caption{Potencjalne podatności systemu.}    Źródło: opracowanie własne na podstawie \cite{}
+    \caption{Potencjalne podatności systemu.}    Źródło: opracowanie własne na podstawie \cite{practicalPrivacy}
 
     \label{fig:podatnosci}
 \end{figure}
 \section{Perturbacja danych}
 Właściciel danych (użytkownik) dokonuje perturbacji własnych danych, a następnie przesyła je w celu dalszego przetwarzania.
+Wyróżniamy następujące rodzaje perturbacji danych:
 \begin{itemize}
     \item addytywne - opisane następującym wzorem 
     Y = X + C, gdzie C jest szumem dodanym do oryginalnej macierzy X. W praktyce każdy wiersz C generowany jest niezależnie,
@@ -27,7 +28,16 @@ Właściciel danych (użytkownik) dokonuje perturbacji własnych danych, a nast�
 \end{itemize}
 
 Głównym problemem w wykorzystaniu perturbacji danych w celu zapewnienia prywatności jest brak gwarancji, że uzyskane wyniki będą tak samo trafne jak w przypadku bez wprowadzenia szumu w danych.
+
 \section{Bezpieczne obliczanie wieloczęściowe}
 
-\section{Szyfrowanie homomorficzne}
+Metoda pozwala rozproszonym stronom na wspólne obliczanie bez konieczności odkrywania ich prywatnych danych wejściowych oraz wyjściowych. Ponadto zastosowania obliczania wieloczęściowego nie wymaga użycia zaufanej trzeciej strony (bezpieczeństwo pozostaje takie samo jak w przypadku wykorzystania trzeciej strony). 
+Wyróżniane są następujące rozwiązania:
+\begin{itemize}
+    \item rozwiązania oparte na bezpiecznym dodawaniu wektorów (\textit{ang. Secure Vector Addition based Solutions}),
+    \item szyfrowanie homomorficzne,
+    \item podejścia oparte na bezpiecznych produktach skalarnych (\textit{ang. Secure scalar product based approach}),
+    \item podejścia oparte o "zniekształcony obwód" (\textit{ang. Garbled circuit based approach}).
+\end{itemize}
 
+Jednak bezpieczne obliczanie wieloczęściowe nie sprawdza się w komercyjnych rozwiązaniach opartych o rekomendacje. Spowodowane jest tym, że metoda ta na ten moment nie może być rozpatrywana przy systemach wymagających działania w czasie rzeczywistym. \cite{secureMultipartyComputation}
