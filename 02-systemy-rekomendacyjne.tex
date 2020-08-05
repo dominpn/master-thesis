@@ -2,7 +2,7 @@
 
 Systemy rekomendacyjne pomagają użytkownikom w zdobyciu wartościowych i spersonalizowanych informacji z dużego źródła danych. Większość przypadków działania takiego systemu opiera się na przewidzeniu preferencji użytkownika na podstawie wcześniej zgromadzonych danych.
 
-Ważnym momentem w historii systemów rekomendacyjnych był otwarty konkurs \textit{Netflix Prize} polegający na zaproponowaniu najlepszego algorytmu \textit{collaborative filtering} mającego na celu przewidzenie oceny filmu danej przez użytkownika, opierając się wyłącznie na poprzednich ocenach, bez dodatkowych informacjach o użytkownikach i filmach. W tym celu opublikowano zbiór testowy zawierający ponad 100 milionów ocen wystawionych przez 500 tysięcy anonimowych użytkowników. W wyzwaniu wzięło udział ponad 48 tysięcy zespołów z 182 państw \cite{netflix_prize}.
+Ważnym momentem w historii systemów rekomendacyjnych był otwarty konkurs \textit{Netflix Prize} polegający na zaproponowaniu najlepszego algorytmu \textit{collaborative filtering} mającego na celu przewidzenie ocen użytkowników dla filmów, opierając się wyłącznie na poprzednich ocenach, bez dodatkowych informacjach o użytkownikach i filmach. W tym celu opublikowano zbiór testowy zawierający ponad 100 milionów ocen wystawionych przez 500 tysięcy anonimowych użytkowników. W wyzwaniu wzięło udział ponad 48 tysięcy zespołów z 182 państw \cite{netflix_prize}.
 
 Po konkursie \textit{Netflix Prize} głównym motywem przewodnim w pracach naukowych stała się faktoryzacja macierzy. Również w celu zwiększenia skuteczności algorytmu uwagę poświęcono takim zagadnieniom jak: wykorzystanie sieci społecznościowych oraz uczenia głębokiego w systemach rekomendacyjnych \cite{recent_developments}.
 
@@ -84,7 +84,7 @@ Ze względu na rodzaj wyjścia (otrzymanego wyniku) systemy rekomendacyjne może
 
 
 \section{Problemy i wyzwania}
-Nowoczesne systemy oparte o rekomendacje muszą radzić sobie z wieloma trudnościami. Problemy dotyczą zarówno małej liczby danych jak i zachowaniem grupy lub pojedynczych użytkowników. Poniżej przedstawiono najczęstsze wyzwania stawiane przed systemami rekomendacyjnymi.
+Nowoczesne systemy oparte o rekomendacje muszą radzić sobie z wieloma trudnościami. Problemy dotyczą zarówno małej liczby danych jak i zachowaniem grupy lub pojedynczych użytkowników. Poniżej przedstawiono najczęstsze wyzwania stawiane przed systemami rekomendacyjnymi. \cite{trendsProblems}
 
 Rzadkość danych - następuje w momencie, gdy wielu użytkowników oceniło tylko kilka przedmiotów przez co system rekomendacyjny nie może poznać preferencji użytkownika (macierz użytkownik-przedmiot ma zbyt wiele pustych wartości). 
 
@@ -152,7 +152,7 @@ NaN
 
 Skalowalność - systemy rekomendacyjne wraz ze wzrostem liczby użytkowników muszą radzić sobie z napływem coraz większej liczby danych do przetworzenia. Gdy takie dane wynoszą miliony użycie standardowych mechanizmów rekomendacyjnych może powodować otrzymanie wyników rekomendacji z dużym opóźnieniem (niewystarczający krótki czas na uzyskanie odpowiedzi). Bardziej złożony system wymaga większej liczby osób usprawniających oraz zarządzających jego działaniem, co równa się większemu kosztowi utrzymania zarówno pracowników jak i sprzętu komputerowego na którym taki system jest wdrożony.
     
-Czarna owca - zjawisko występuje w momencie, gdy preferencje jednego z użytkowników nie pokrywają się z wyodrębnionymi grupami użytkowników, stąd użytkowników nie będzie w stanie otrzymać spersonalizowanych rekomendacji (przykład przedstawiony na rys. \ref{fig:grey-sheep} pokazuje jednego użytkownika o innych preferencjach niż wygenerowane grupy przez system rekomendacyjny).
+Czarna owca - zjawisko występuje w momencie, gdy preferencje jednego z użytkowników nie pokrywają się z wyodrębnionymi grupami użytkowników, stąd użytkownik nie będzie w stanie otrzymać spersonalizowanych rekomendacji (przykład przedstawiony na rys. \ref{fig:grey-sheep} pokazuje jednego użytkownika o innych preferencjach niż wygenerowane grupy przez system rekomendacyjny).
 
 \begin{figure}
     \centering
@@ -174,11 +174,20 @@ Długi ogon - następuje w momencie, gdy rekomendacja opiera się na produktach 
 Zimny start (ang \textit{cold-start)} - występuje w momencie rejestracji do systemu nowego użytkownika lub przedmiotu. Przedmioty nie mogą zostać zarekomendowane, ponieważ nie mają żadnej oceny natomiast nowi klienci dokonali zbyt mało ocen.
 
 \section{Content-based filtering}
-\textit{Content-based filtering} oparte jest na założeniu, że użytkownik polubi przedmioty o podobnej charakterystyce do tych, które poprzednio zostały przez niego polubione (schemat działania przedstawiony na rys. \ref{fig:content-based}). Do tego celu wykorzystywane są opisy produktów (na przykład przedstawione w formie tagów) do generowania rekomendacji. Plusem tego podejścia jest fakt, że do przeprowadzenia rekomendacji nie są potrzebne dane użytkownika, jednak wymagany jest dokładny opis oraz cechy charakterystyczne danego produktu. Przykładami takich cech może być zawartość książki lub sygnał akustyczny utworu muzycznego.
+Podejście bazujące na cechach (ang. \textit{Content-based filtering}) oparte jest na założeniu, że użytkownik polubi przedmioty o podobnej charakterystyce do tych, które poprzednio zostały przez niego polubione (schemat działania przedstawiony na rys. \ref{fig:content-based}). Do tego celu wykorzystywane są opisy produktów (na przykład przedstawione w formie tagów) do generowania rekomendacji. Plusem tego podejścia jest fakt, że do przeprowadzenia rekomendacji nie są potrzebne dane użytkownika, jednak wymagany jest dokładny opis oraz cechy charakterystyczne danego produktu. Przykładami takich cech może być zawartość książki lub sygnał akustyczny utworu muzycznego.
+
+
+todo dodać coś
+
+eeee
+
+eeee
+
+eeee
 
 \begin{figure}
     \centering
-    \includegraphics{images/content-based.png}
+    \includegraphics[scale=0.7]{images/content-based.png}
     \caption{Sposób działania mechanizmu \textit{Content-based filtering}.}
     Źródło: opracowanie własne na podstawie \cite{challenges_solutions_survey}
     \label{fig:content-based}
@@ -191,8 +200,17 @@ Podejście to nie wykorzystuje cech charakterystycznych przedmiotu (tak jak to b
 Opisywana metoda może zostać podzielona na dwie podkategorie:
 
 \begin{itemize}
-    \item podejście pamięciowe (\textit{ang. memory based}) rekomenduje przedmiot na podstawie zbioru poprzednio ocenionych przez użytkownika przedmiotów. Dla przykładowego użytkownika \textit{u}, predykcja wyliczana jest na podstawie podobnych do niego użytkowników (główna idea przedstawiona na rys. \ref{fig:collaborative}) lub przedmiotów podobnych do tych, które wcześniej ocenił. Miara podobieństwa najczęściej obliczana jest korelacją Pearsona lub podobieństwem kosinusowym,
-    \item podejście modelowe (\textit{ang. content based}) wykorzystuje dane historyczne. Jedną z najczęściej stosowanych metod w tym podejściu jest faktoryzacja macierzy, która zakłada, że użytkownicy oceniają przedmioty na podstawie pewnych cech. W przypadku muzyki może być jej gatunek lub wykonawca. W takim przypadku system rekomendacyjny jest w stanie odkryć czynniki umożliwiające na lepszą skuteczność systemu (liczba czynników powinna być mniejsza od liczby użytkowników i przedmiotów). 
+    \item podejście pamięciowe (\textit{ang. memory based}) rekomenduje przedmiot na podstawie zbioru poprzednio ocenionych przez użytkownika przedmiotów. Dla przykładowego użytkownika \textit{u}, predykcja wyliczana jest na podstawie podobnych do niego użytkowników (główna idea przedstawiona na rys. \ref{fig:collaborative}) lub przedmiotów podobnych do tych, które wcześniej ocenił. Miara podobieństwa najczęściej obliczana jest korelacją Pearsona, wyjaśnioną dalej, lub podobieństwem kosinusowym, które jest iloczyn skalarnym dwóch wektorów, i reprezentuje kosinus kąta pomiędzy dwoma wektorami reprezentującymi przedmiotu. Dwa dokumenty są identyczne, wtedy gdy wartość miary wynosi 1. Natomiast wartość 0 oznacza, że dokumenty są do siebie niepodobne,
+    
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{images/collaborative.png}
+    \caption{Sposób działania mechanizmu \textit{Collaborative filtering}.}
+    Źródło: opracowanie własne na podstawie \cite{challenges_solutions_survey}
+    \label{fig:collaborative}
+
+\end{figure}
+    \item podejście modelowe (\textit{ang. content based}) wykorzystuje dane historyczne. Jedną z najczęściej stosowanych metod w tym podejściu jest faktoryzacja macierzy, która zakłada, że użytkownicy oceniają przedmioty na podstawie pewnych cech. W przypadku muzyki może to być jej gatunek lub wykonawca. W takim przypadku system rekomendacyjny jest w stanie odkryć czynniki umożliwiające lepszą skuteczność systemu (liczba czynników powinna być mniejsza od liczby użytkowników i przedmiotów). 
 \end{itemize}
 
 W celu określenia miary podobieństwa pomiędzy użytkownikami najczęściej stosowana jest korelacja Pearsona. Definiowana jest ona w następujący sposób:
@@ -216,30 +234,22 @@ Pearson(a,b) = \frac{\sum\limits_{p \in P}(r_{a,p} - \overline{r}_a)(r_{b,p} - \
 
 Uzyskane w ten sposób wartości są z przedziału [-1; 1], im wyższa liczba tym użytkownicy są do siebie bardziej podobni.
 
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.6]{images/collaborative.png}
-    \caption{Sposób działania mechanizmu \textit{Collaborative filtering}.}
-    Źródło: opracowanie własne na podstawie \cite{challenges_solutions_survey}
-    \label{fig:collaborative}
-\end{figure}
-
 \section{Knowledge-based filtering}
 
-Podejście oparte o wiedzę swoje działanie na wykorzystaniu źródeł wiedzy, które nie zostały uzyskane za pomocą poprzednio omawianych metod. Rekomendacje generowane są na podstawie wiedzy dziedzinowej preferencji użytkownika, cech przedmiotów oraz jak te cechy mogą spełniać potrzeby użytkownika. Wyróżnia się dwa podejścia:
+Podejście oparte o wiedzę polega na wykorzystaniu źródeł wiedzy, które nie zostały uzyskane za pomocą poprzednio omawianych metod. Rekomendacje generowane są na podstawie wiedzy dziedzinowej preferencji użytkownika, cech przedmiotów oraz jak te cechy mogą spełniać potrzeby użytkownika. Wyróżnia się dwa podejścia:
 \begin{itemize}
     \item oparte o przypadek (ang. \textit{case-based}) - używają  metryk podobieństwa do uzyskania przedmiotów zgodnych z potrzebami użytkownika,
     \item oparte o ograniczenia (ang. \textit{constraint-based}) - opiera działanie na zbiorze reguł, aby znaleźć przedmioty spełniające wymagania użytkowników.
 
 \end{itemize}
 
-Oba podejścia wymagają od użytkownika podania wymagań na podstawie, których system będzie próbował otrzymać odpowiedź na żądanie użytkownika.
+Oba podejścia wymagają od użytkownika podania wymagań, na podstawie których system będzie próbował otrzymać odpowiedź na żądanie użytkownika.
 
 \section{Podejście hybyrdowe}
 
 Podejście hybrydowe ma na celu zniwelować wady pojedynczych metod poprzez połączenie dwóch lub więcej mechanizmów. Najczęściej stosowaną kombinacją jest \textit{Content-based} wraz z \textit{Collaborative filtering}. 
 
-Koncepcja \textit{Content-Boosted Collaborative Filtering} wykorzystuje pseudowektory ocen użytkowników $V_{u}$, który zawiera oceny użytkownika $u$ oraz predykcję ocen przedmiotów nieocenionych przez niego. 
+Koncepcja \textit{Content-Boosted Collaborative Filtering} wykorzystuje pseudowektor ocen użytkowników $V_{u}$, który zawiera oceny użytkownika $u$ oraz predykcję ocen przedmiotów nieocenionych przez niego. 
 
 \begin{equation}
 V_{u,i} = \left\{ \begin{array}{ll}
@@ -251,7 +261,7 @@ V_{u,i} = \left\{ \begin{array}{ll}
     \item $r_{u,i}$ - ocena podana przez użytkownika u,
     \item $r_{u,i}$ - przewidywana ocena przez czysty system typu \textit{content-based}. 
 \end{itemize}
-Tak utworzone pseudowektory dla wszystkich użytkowników tworzą macierz V na której zostanie przeprowadzone filtrowanie kolaboracyjne.
+Tak utworzone pseudowektory dla wszystkich użytkowników tworzą macierz V, na której zostanie przeprowadzone filtrowanie kolaboracyjne.
 
 \section{Sposoby ewaluacji}\label{metryki}
 
@@ -262,10 +272,10 @@ Zbiór danych dzielony jest na treningowy, walidacyjny oraz testowy. Zbiór tren
 Średni błąd kwadratowy (\textit{ang. Mean Absolute Error}) - mierzy bezwzględny błąd pomiędzy wyestymowaną wartością, a prawdziwą.
 
 \begin{equation}
-    MAE = \frac{\sum\limits_{i,j\in{k}}|\hat{r}_{u,i} - r_{u,i}|}{N},
+    MAE = \frac{\sum\limits_{i}^{N}|\hat{r}_{u,i} - r_{u,i}|}{N},
 \end{equation} gdzie:
 \begin{itemize}
-    \item $\hat{r}_{u,i}$ - predykcja oceny użytkownika u dla przedmiotu j,
+    \item $\hat{r}_{u,i}$ - predykcja oceny użytkownika u dla przedmiotu i,
     \item $r_{u,i}$ - rzeczywista ocena,
     \item N - liczba wszystkich ocen w danych testowych.
 \end{itemize}
@@ -273,7 +283,7 @@ Zbiór danych dzielony jest na treningowy, walidacyjny oraz testowy. Zbiór tren
 Pierwiastek średniego błędu kwadratowego (\textit{ang. Root Mean Square Error}) - wzmacnia błąd średniokwadratowy pomiędzy przewidywaną wartością, a rzeczywistą. Sprawdza się, gdy błąd ma duży wpływ na decyzje użytkowników.
 
 \begin{equation}
-    RMSE = \sqrt{\frac{\sum\limits_{i,j\in{k}}(\hat{r}_{u,i} - r_{u,i})^2}{N}},
+    RMSE = \sqrt{\frac{\sum\limits_{i}^{N}(\hat{r}_{u,i} - r_{u,i})^2}{N}},
 \end{equation}
 
 Precyzja (ang. \textit{Precision}) jest to stosunek prawidłowo sklasyfikowanych elementów do wszystkich otrzymanych.
@@ -316,11 +326,11 @@ Każda z omówionych we wcześniejszych rozdziałach metod posiada zalety i wady
 
 Mechanizm \textit{content-based} posiada dwie główne zalety. Pierwsza z nich to fakt, że nie jest wymagana żadna wiedza na temat innych użytkowników w momencie, gdy rekomendacje są generowane wyłącznie do jednego, określonego użytkownika. Przez co umożliwia na łatwiejsze skalowanie aplikacji w przypadku wystąpienia znacznego wzrostu liczby użytkowników. Także zastosowanie tego podejścia umożliwia na wychwycenie specyficznych zainteresowań użytkownika przez co rekomendacja obejmuje niszowe obiekty, które podobają się jedynie garstce użytkowników. Jednak wykorzystanie tej techniki wymaga sporej wiedzy dziedzinowej (model może być wyłącznie tak dobry jak wybrane cechy brane pod uwagę przy nauce modelu). Podawane rekomendacje ograniczają się wyłącznie do aktualnych zainteresowań użytkownika (nie są proponowane przedmioty wychodzące poza gust użytkownika).
 
-Systemy rekomendacyjne wykorzystujące podejście \textit{collaborative-filtering} uzyskują zadowalające wyniku związane z wydajnością, jednak nie są odporne na problem zimnego startu. Także problemem może okazać się rzadkość danych, jeżeli wartość wynosi około 0.5 lub więcej wtedy należy rozważyć użycie innego rozwiązania. Wraz ze wzrostem liczby użytkowników rośnie krytyczne problem związany ze skalowalnością takiego systemu (rozmiar macierzy zwiększa się znacząco z napływem nowych użytkowników lub przedmiotów). Oprócz wspomnianych wad zastosowanie tego nie jest wymagana wiedza domenowa, ponieważ w celu wytrenowania potrzebna jest wyłącznie macierz sprzężenia zwrotnego. Także wykorzystanie tego modelu umożliwia na pokazanie użytkownikom nowego przedmiotu/obiektu, który podobał się innym podobnym użytkownikom.
+Systemy rekomendacyjne wykorzystujące podejście \textit{collaborative-filtering} uzyskują zadowalające wyniki związane z wydajnością, jednak nie są odporne na problem zimnego startu. Także problemem może okazać się rzadkość danych, jeżeli wartość wynosi około 0.5 lub więcej wtedy należy rozważyć użycie innego rozwiązania. Wraz ze wzrostem liczby użytkowników rośnie krytycznie problem związany ze skalowalnością takiego systemu (rozmiar macierzy zwiększa się znacząco z napływem nowych użytkowników lub przedmiotów). Oprócz wspomnianych wad zastosowanie tego podejścia nie jest wymaga wiedzy domenowej, ponieważ w celu wytrenowania potrzebna jest wyłącznie macierz sprzężenia zwrotnego. Także wykorzystanie tego modelu umożliwia na pokazanie użytkownikom nowego przedmiotu/obiektu, który podobał się innym podobnym użytkownikom.
 
-Systemy wykorzystujące mechanizm \textit{knowlegde-based} cechują się łatwością w implementacji tak zwanych reguł biznesowych, co w pozostałych rozwiązaniach nie jest tak proste. Metoda nie wymaga wkładu użytkownika do rozpoczęcia działania przez co nie występuje problem związany z zimnym startem. Jednak zbudowanie systemu opartego na tym mechanizmie jest bardzo drogie, ponieważ wymaga trafnej wiedzy eksperckiej. W aktualnych rozwiązaniach stosowany jest niesamodzielnie, lecz w połączeniu z innymi mechanizmami.  \cite{reviewCurrentRS}
+Systemy wykorzystujące mechanizm \textit{knowlegde-based} cechują się łatwością w implementacji tak zwanych reguł biznesowych, co w pozostałych rozwiązaniach nie jest tak proste. Metoda nie wymaga wkładu użytkownika do rozpoczęcia działania, przez co nie występuje problem związany z zimnym startem. Jednak zbudowanie systemu opartego na tym mechanizmie jest bardzo drogie, ponieważ wymaga trafnej wiedzy eksperckiej. W aktualnych rozwiązaniach stosowany jest niesamodzielnie, lecz w połączeniu z innymi mechanizmami.  \cite{reviewCurrentRS}
 
-Wydajność, a także zalety i wady związane z podejściem hybrydowym zależy od kombinacji mechanizmów, które zostały użyte do jego stworzenia. Połączenie niektórych metod może spowodować zniwelowaniu problemów występujących podczas rekomendowania produktów dla użytkowników.
+Wydajność, a także zalety i wady związane z podejściem hybrydowym zależy od kombinacji mechanizmów, które zostały użyte do jego stworzenia. Połączenie niektórych metod może spowodować zniwelowanie problemów występujących podczas rekomendowania produktów dla użytkowników.
 
 \begin{table}[h]
 \centering
