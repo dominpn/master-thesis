@@ -154,7 +154,7 @@ Skalowalność - systemy rekomendacyjne wraz ze wzrostem liczby użytkowników m
     
 Czarna owca - zjawisko występuje w momencie, gdy preferencje jednego z użytkowników nie pokrywają się z wyodrębnionymi grupami użytkowników, stąd użytkownik nie będzie w stanie otrzymać spersonalizowanych rekomendacji (przykład przedstawiony na rys. \ref{fig:grey-sheep} pokazuje jednego użytkownika o innych preferencjach niż wygenerowane grupy przez system rekomendacyjny).
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{images/grey_sheep.png}
     \caption{Czarna owca - przykład}
@@ -163,7 +163,7 @@ Czarna owca - zjawisko występuje w momencie, gdy preferencje jednego z użytkow
 
 Długi ogon - następuje w momencie, gdy rekomendacja opiera się na produktach podobnych do siebie. Wtedy użytkownicy oglądają tylko część oferowanych przez serwis przedmiotów. Zjawisko to objawia się tym, że produkty, które potencjalnie mogą się podobać konsumentowi nie zostaną mu zaprezentowane. Zjawisko w formie graficznej zaprezentowano na rys. \ref{fig:long-tail} - kolor żółtym zaznaczono długi ogon.
 
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.4]{images/long_tail.png}
     \caption{Długi ogon}
@@ -176,16 +176,7 @@ Zimny start (ang \textit{cold-start)} - występuje w momencie rejestracji do sys
 \section{Content-based filtering}
 Podejście bazujące na cechach (ang. \textit{Content-based filtering}) oparte jest na założeniu, że użytkownik polubi przedmioty o podobnej charakterystyce do tych, które poprzednio zostały przez niego polubione (schemat działania przedstawiony na rys. \ref{fig:content-based}). Do tego celu wykorzystywane są opisy produktów (na przykład przedstawione w formie tagów) do generowania rekomendacji. Plusem tego podejścia jest fakt, że do przeprowadzenia rekomendacji nie są potrzebne dane użytkownika, jednak wymagany jest dokładny opis oraz cechy charakterystyczne danego produktu. Przykładami takich cech może być zawartość książki lub sygnał akustyczny utworu muzycznego.
 
-
-todo dodać coś
-
-eeee
-
-eeee
-
-eeee
-
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[scale=0.7]{images/content-based.png}
     \caption{Sposób działania mechanizmu \textit{Content-based filtering}.}
@@ -262,6 +253,15 @@ V_{u,i} = \left\{ \begin{array}{ll}
     \item $r_{u,i}$ - przewidywana ocena przez czysty system typu \textit{content-based}. 
 \end{itemize}
 Tak utworzone pseudowektory dla wszystkich użytkowników tworzą macierz V, na której zostanie przeprowadzone filtrowanie kolaboracyjne.
+
+
+\section{Uczenie głębokie}
+
+Ostatnim omawianym sposobem jest wykorzystanie uczenia głębokiego do implementacji systemu rekomendacyjnego. Jest to podkategoria uczenia maszynowego, polegająca na tworzeniu sieci neuronowych. 
+
+Charakteryzuje się, tym że nie wymaga kontroli (nadzoru) człowieka podczas procesu uczenia. Umożliwia na modelowanie nieliniowych interakcji w danych za pomocą nieliniowych funkcji aktywacji (większość standardowych metod takich jak faktoryzacja macierzy opiera się na modelu liniowym). Dzięki temu możliwe jest na wychwycenie złożonych wzorców z macierzy użytkownik-przedmiot.
+
+Uczenie głębokie pozwala na efektywną naukę z otrzymanych danych. Wykorzystanie wielu informacji (systemy działające w rzeczywistości gromadzą wiele użytecznych danych) podczas procesu rekomendacji pozwala na zwiększenie skuteczności. Zastosowanie tego sposobu pozwala na zmniejszenie czasu poświęconego na obróbkę danych oraz pozwala na wykorzystanie w nauce danych tekstowych, obrazów, audio czy wideo.
 
 \section{Sposoby ewaluacji}\label{metryki}
 
